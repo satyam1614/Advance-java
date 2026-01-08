@@ -180,3 +180,226 @@ mysql> select * from marksheet limit 10,5;
 | 15 |    115 | vansika |   25 |    32 |    20 |
 +----+--------+---------+------+-------+-------+
 5 rows in set (0.00 sec)
+
+-----------------------------------------------------update ,delete,forigen key---------------------------------------------------
+
+
+mysql> use rays;
+Database changed
+mysql> select * from marksheet;
++----+--------+---------+------+-------+-------+
+| id | rollno | name    | phy  | hindi | maths |
++----+--------+---------+------+-------+-------+
+|  1 |    101 | ram     |   45 |    67 |    89 |
+|  2 |    102 | shyam   |   34 |    89 |    55 |
+|  3 |    103 | raju    |   55 |    69 |    40 |
+|  4 |    104 | satyam  |   45 |    89 |    72 |
+|  5 |    105 | saket   |   78 |    80 |    98 |
+|  6 |    106 | pawan   |   32 |    45 |    20 |
+|  7 |    107 | raj     |   67 |    56 |    71 |
+|  8 |    108 | vishal  |   63 |    61 |    70 |
+|  9 |    109 | sanju   |   89 |    92 |    95 |
+| 10 |    110 | amnol   |   55 |    88 |    86 |
+| 11 |    111 | amii    |   22 |    33 |    45 |
+| 12 |    112 | aman    |   59 |    66 |    37 |
+| 13 |    113 | anjali  |   98 |    99 |    92 |
+| 14 |    114 | chiku   |   45 |    55 |    65 |
+| 15 |    115 | vansika |   25 |    32 |    20 |
++----+--------+---------+------+-------+-------+
+15 rows in set (0.02 sec)
+
+mysql> delete from marksheet where id = 15;
+Query OK, 1 row affected (0.06 sec)
+
+mysql> select * from marksheet;
++----+--------+--------+------+-------+-------+
+| id | rollno | name   | phy  | hindi | maths |
++----+--------+--------+------+-------+-------+
+|  1 |    101 | ram    |   45 |    67 |    89 |
+|  2 |    102 | shyam  |   34 |    89 |    55 |
+|  3 |    103 | raju   |   55 |    69 |    40 |
+|  4 |    104 | satyam |   45 |    89 |    72 |
+|  5 |    105 | saket  |   78 |    80 |    98 |
+|  6 |    106 | pawan  |   32 |    45 |    20 |
+|  7 |    107 | raj    |   67 |    56 |    71 |
+|  8 |    108 | vishal |   63 |    61 |    70 |
+|  9 |    109 | sanju  |   89 |    92 |    95 |
+| 10 |    110 | amnol  |   55 |    88 |    86 |
+| 11 |    111 | amii   |   22 |    33 |    45 |
+| 12 |    112 | aman   |   59 |    66 |    37 |
+| 13 |    113 | anjali |   98 |    99 |    92 |
+| 14 |    114 | chiku  |   45 |    55 |    65 |
++----+--------+--------+------+-------+-------+
+14 rows in set (0.00 sec)
+
+mysql> update marksheet set name = 'satyam yadav' where id = 4;
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from marksheet;
++----+--------+--------------+------+-------+-------+
+| id | rollno | name         | phy  | hindi | maths |
++----+--------+--------------+------+-------+-------+
+|  1 |    101 | ram          |   45 |    67 |    89 |
+|  2 |    102 | shyam        |   34 |    89 |    55 |
+|  3 |    103 | raju         |   55 |    69 |    40 |
+|  4 |    104 | satyam yadav |   45 |    89 |    72 |
+|  5 |    105 | saket        |   78 |    80 |    98 |
+|  6 |    106 | pawan        |   32 |    45 |    20 |
+|  7 |    107 | raj          |   67 |    56 |    71 |
+|  8 |    108 | vishal       |   63 |    61 |    70 |
+|  9 |    109 | sanju        |   89 |    92 |    95 |
+| 10 |    110 | amnol        |   55 |    88 |    86 |
+| 11 |    111 | amii         |   22 |    33 |    45 |
+| 12 |    112 | aman         |   59 |    66 |    37 |
+| 13 |    113 | anjali       |   98 |    99 |    92 |
+| 14 |    114 | chiku        |   45 |    55 |    65 |
++----+--------+--------------+------+-------+-------+
+14 rows in set (0.00 sec)
+
+mysql> create table department( id int primary key ,deptname varchar(45);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> create table department ( id int primary key ,deptname varchar(45));
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> insert into department values (1,'classmoniter'),(2,'visemoniter'),(3,'redhousecaption'),(4,'bluehousecaption');
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from marksheet;
++----+--------+--------------+------+-------+-------+
+| id | rollno | name         | phy  | hindi | maths |
++----+--------+--------------+------+-------+-------+
+|  1 |    101 | ram          |   45 |    67 |    89 |
+|  2 |    102 | shyam        |   34 |    89 |    55 |
+|  3 |    103 | raju         |   55 |    69 |    40 |
+|  4 |    104 | satyam yadav |   45 |    89 |    72 |
+|  5 |    105 | saket        |   78 |    80 |    98 |
+|  6 |    106 | pawan        |   32 |    45 |    20 |
+|  7 |    107 | raj          |   67 |    56 |    71 |
+|  8 |    108 | vishal       |   63 |    61 |    70 |
+|  9 |    109 | sanju        |   89 |    92 |    95 |
+| 10 |    110 | amnol        |   55 |    88 |    86 |
+| 11 |    111 | amii         |   22 |    33 |    45 |
+| 12 |    112 | aman         |   59 |    66 |    37 |
+| 13 |    113 | anjali       |   98 |    99 |    92 |
+| 14 |    114 | chiku        |   45 |    55 |    65 |
++----+--------+--------------+------+-------+-------+
+14 rows in set (0.00 sec)
+
+mysql> select * from department
+    -> select * from department;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'select * from department' at line 2
+mysql> select * from department;
++----+------------------+
+| id | deptname         |
++----+------------------+
+|  1 | classmoniter     |
+|  2 | visemoniter      |
+|  3 | redhousecaption  |
+|  4 | bluehousecaption |
++----+------------------+
+4 rows in set (0.00 sec)
+
+mysql> alter table marksheet add dept_id int;
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from marksheet;
++----+--------+--------------+------+-------+-------+---------+
+| id | rollno | name         | phy  | hindi | maths | dept_id |
++----+--------+--------------+------+-------+-------+---------+
+|  1 |    101 | ram          |   45 |    67 |    89 |    NULL |
+|  2 |    102 | shyam        |   34 |    89 |    55 |    NULL |
+|  3 |    103 | raju         |   55 |    69 |    40 |    NULL |
+|  4 |    104 | satyam yadav |   45 |    89 |    72 |    NULL |
+|  5 |    105 | saket        |   78 |    80 |    98 |    NULL |
+|  6 |    106 | pawan        |   32 |    45 |    20 |    NULL |
+|  7 |    107 | raj          |   67 |    56 |    71 |    NULL |
+|  8 |    108 | vishal       |   63 |    61 |    70 |    NULL |
+|  9 |    109 | sanju        |   89 |    92 |    95 |    NULL |
+| 10 |    110 | amnol        |   55 |    88 |    86 |    NULL |
+| 11 |    111 | amii         |   22 |    33 |    45 |    NULL |
+| 12 |    112 | aman         |   59 |    66 |    37 |    NULL |
+| 13 |    113 | anjali       |   98 |    99 |    92 |    NULL |
+| 14 |    114 | chiku        |   45 |    55 |    65 |    NULL |
++----+--------+--------------+------+-------+-------+---------+
+14 rows in set (0.00 sec)
+
+mysql> alter table employee and foreign key (dept_id) references department(id);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and foreign key (dept_id) references department(id)' at line 1
+mysql> alter table marksheet add foreign key (dept_id) references department(id);
+Query OK, 14 rows affected (0.08 sec)
+Records: 14  Duplicates: 0  Warnings: 0
+
+mysql> select * from department;
++----+------------------+
+| id | deptname         |
++----+------------------+
+|  1 | classmoniter     |
+|  2 | visemoniter      |
+|  3 | redhousecaption  |
+|  4 | bluehousecaption |
++----+------------------+
+4 rows in set (0.00 sec)
+
+mysql>
+mysql> alter table marksheet add dept_id int;
+ERROR 1060 (42S21): Duplicate column name 'dept_id'
+mysql> update marksheet set dept_id = 2 where id = 1;
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from marksheet;
++----+--------+--------------+------+-------+-------+---------+
+| id | rollno | name         | phy  | hindi | maths | dept_id |
++----+--------+--------------+------+-------+-------+---------+
+|  1 |    101 | ram          |   45 |    67 |    89 |       2 |
+|  2 |    102 | shyam        |   34 |    89 |    55 |    NULL |
+|  3 |    103 | raju         |   55 |    69 |    40 |    NULL |
+|  4 |    104 | satyam yadav |   45 |    89 |    72 |    NULL |
+|  5 |    105 | saket        |   78 |    80 |    98 |    NULL |
+|  6 |    106 | pawan        |   32 |    45 |    20 |    NULL |
+|  7 |    107 | raj          |   67 |    56 |    71 |    NULL |
+|  8 |    108 | vishal       |   63 |    61 |    70 |    NULL |
+|  9 |    109 | sanju        |   89 |    92 |    95 |    NULL |
+| 10 |    110 | amnol        |   55 |    88 |    86 |    NULL |
+| 11 |    111 | amii         |   22 |    33 |    45 |    NULL |
+| 12 |    112 | aman         |   59 |    66 |    37 |    NULL |
+| 13 |    113 | anjali       |   98 |    99 |    92 |    NULL |
+| 14 |    114 | chiku        |   45 |    55 |    65 |    NULL |
++----+--------+--------------+------+-------+-------+---------+
+14 rows in set (0.00 sec)
+
+mysql> update marksheet set dept_id = 4 where id = 6;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update maeksheet set dept_id = 3 where id = 10;
+ERROR 1146 (42S02): Table 'rays.maeksheet' doesn't exist
+mysql> update marksheet set dept_id = 3 where id = 10;
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> selected * from marksheet;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selected * from marksheet' at line 1
+mysql> select * from marksheet;
++----+--------+--------------+------+-------+-------+---------+
+| id | rollno | name         | phy  | hindi | maths | dept_id |
++----+--------+--------------+------+-------+-------+---------+
+|  1 |    101 | ram          |   45 |    67 |    89 |       2 |
+|  2 |    102 | shyam        |   34 |    89 |    55 |    NULL |
+|  3 |    103 | raju         |   55 |    69 |    40 |    NULL |
+|  4 |    104 | satyam yadav |   45 |    89 |    72 |    NULL |
+|  5 |    105 | saket        |   78 |    80 |    98 |    NULL |
+|  6 |    106 | pawan        |   32 |    45 |    20 |       4 |
+|  7 |    107 | raj          |   67 |    56 |    71 |    NULL |
+|  8 |    108 | vishal       |   63 |    61 |    70 |    NULL |
+|  9 |    109 | sanju        |   89 |    92 |    95 |    NULL |
+| 10 |    110 | amnol        |   55 |    88 |    86 |       3 |
+| 11 |    111 | amii         |   22 |    33 |    45 |    NULL |
+| 12 |    112 | aman         |   59 |    66 |    37 |    NULL |
+| 13 |    113 | anjali       |   98 |    99 |    92 |    NULL |
+| 14 |    114 | chiku        |   45 |    55 |    65 |    NULL |
++----+--------+--------------+------+-------+-------+---------+
+14 rows in set (0.00 sec)
