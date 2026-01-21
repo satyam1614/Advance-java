@@ -42,6 +42,8 @@ public class UserModel {
 		conn.close();
 		pstmt.close();
 	}
+	
+	
 
 	public void update(UserBean bean) throws Exception {
 

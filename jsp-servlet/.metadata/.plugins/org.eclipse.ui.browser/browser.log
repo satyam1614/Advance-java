@@ -1,0 +1,19 @@
+
+Jan 20, 2026 17:06:01.325 NEW SESSION
+Jan 20, 2026 17:06:01.325 Created TensorFlow Lite XNNPACK delegate for CPU.
+Jan 20, 2026 17:06:06.191 [5552:3716:0120/170606.191:ERROR:google_apis\gcm\engine\registration_request.cc:292] Registration response error message: DEPRECATED_ENDPOINT
+Jan 20, 2026 17:06:37.784 Created TensorFlow Lite XNNPACK delegate for CPU.
+Jan 20, 2026 17:06:41.277 [15892:22108:0120/170641.276:ERROR:google_apis\gcm\engine\registration_request.cc:292] Registration response error message: DEPRECATED_ENDPOINT
+
+Jan 21, 2026 15:12:39.284 NEW SESSION
+Jan 21, 2026 15:12:39.284 Created TensorFlow Lite XNNPACK delegate for CPU.
+Jan 21, 2026 15:12:42.878 [11204:11328:0121/151242.878:ERROR:google_apis\gcm\engine\registration_request.cc:292] Registration response error message: DEPRECATED_ENDPOINT
+Jan 21, 2026 15:13:04.191 [11204:11328:0121/151304.189:ERROR:google_apis\gcm\engine\registration_request.cc:292] Registration response error message: DEPRECATED_ENDPOINT
+Jan 21, 2026 15:13:49.151 [11204:11328:0121/151349.151:ERROR:google_apis\gcm\engine\registration_request.cc:292] Registration response error message: DEPRECATED_ENDPOINT
+Jan 21, 2026 15:15:19.676 [11204:11328:0121/151519.676:ERROR:google_apis\gcm\engine\registration_request.cc:292] Registration response error message: DEPRECATED_ENDPOINT
+Jan 21, 2026 15:19:17.957 [11204:11328:0121/151917.956:ERROR:google_apis\gcm\engine\registration_request.cc:292] Registration response error message: DEPRECATED_ENDPOINT
+Jan 21, 2026 15:26:47.582 [11204:11328:0121/152647.582:ERROR:google_apis\gcm\engine\registration_request.cc:292] Registration response error message: DEPRECATED_ENDPOINT
+Jan 21, 2026 16:11:49.529 [11204:11328:0121/161149.527:ERROR:google_apis\gcm\engine\connection_factory_impl.cc:483] ConnectionHandler failed with net error: -2
+Jan 21, 2026 16:11:52.455 [11204:11328:0121/161152.454:ERROR:google_apis\gcm\engine\connection_factory_impl.cc:483] ConnectionHandler failed with net error: -2
+Jan 21, 2026 16:12:02.118 [11204:16368:0121/161202.117:ERROR:components\device_event_log\device_event_log_impl.cc:198] [16:12:02.117] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
+Jan 21, 2026 16:26:17.303 [11204:11328:0121/162617.303:ERROR:google_apis\gcm\engine\connection_factory_impl.cc:483] ConnectionHandler failed with net error: -2
