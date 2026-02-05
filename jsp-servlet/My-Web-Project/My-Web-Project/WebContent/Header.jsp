@@ -8,34 +8,30 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Header</title>
 </head>
 <body>
-	<%
-	UserBean userbean = (UserBean) session.getAttribute("user");
-	%>
 
 	<%
-	if (userbean != null) {
+	UserBean ub = (UserBean) session.getAttribute("user");
 	%>
-	<h2><%="Hii, " + userbean.getFirstName()%></h2>
-	<a href="LoginCtl?operation=logout">logout</a> |
-	<a href="UserCtl.do">Add User</a> |
-	<a href="UserListCtl.do">User List</a>
+	<%
+	if (ub != null) {
+	%>
+	<h2><%="Hii, " + ub.getFirstName()%></h2>
+	<a href="LoginCtl?operation=logout">Logout</a> |
+	<a href="UserListCtl.do">User List</a> &nbsp
+	<a href="UserCtl.do">Add User</a>
 	<%
 	} else {
 	%>
 	<h2>Hii, Guest</h2>
-	<a href="LoginCtl">login</a> |
-	<a href="WelcomeCtl">Welcome</a>
+	<a href="LoginCtl">Login</a> |
+	<a href="WelcomeCtl">Welcome</a> &nbsp
+	<a href="UserResgistrationCtl">User Registration</a> |
 	<%
-	}
-	%>
-
-
-
+ }
+ %>
 	<hr>
-
-
 </body>
 </html>

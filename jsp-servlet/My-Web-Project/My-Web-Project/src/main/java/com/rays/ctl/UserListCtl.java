@@ -19,15 +19,18 @@ public class UserListCtl extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		UserModel model = new UserModel();
-		UserBean bean = new UserBean();
 
+		UserBean bean = new UserBean();
+		UserModel model = new UserModel();
+
+		List list;
 		try {
-			List list = model.search(bean);
+
+			list = model.search(bean);
 			request.setAttribute("list", list);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 
 		RequestDispatcher rd = request.getRequestDispatcher("UserListView.jsp");
@@ -38,9 +41,8 @@ public class UserListCtl extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		UserBean bean = new UserBean();
 		UserModel model = new UserModel();
-
+		UserBean bean = new UserBean();
 		String op = request.getParameter("operation");
 		String[] ids = request.getParameterValues("ids");
 		if (op.equals("Delete")) {
@@ -50,18 +52,22 @@ public class UserListCtl extends HttpServlet {
 					try {
 						model.delete(bean);
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}
 			}
 		}
+		if (op.equals("Search")) {
+			bean.setFirstName(request.getParameter("firstName"));
+		}
+		List list;
 		try {
-			List list = model.search(bean);
+
+			list = model.search(bean);
 			request.setAttribute("list", list);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 
 		RequestDispatcher rd = request.getRequestDispatcher("UserListView.jsp");
