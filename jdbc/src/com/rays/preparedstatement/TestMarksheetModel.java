@@ -7,12 +7,14 @@ public class TestMarksheetModel {
 
 	public static void main(String[] args) throws Exception {
 
-//		testAdd();
+       //testAdd();
 		//testUpdate();
-		// testDelete();
+		 //testDelete();
 		 // testfindByRollNo(); 
-//		   testfindByPk();
-		Testsearch();
+		  // testfindByPk();
+		//testsearch();
+		TestGetMeritList();
+		
 	}
 
 	public static void testAdd() throws Exception {
@@ -53,7 +55,7 @@ public class TestMarksheetModel {
 		 MarksheetModel model = new MarksheetModel();
 		 MarksheetBean bean = new MarksheetBean();
 		 
-		 bean.setId(6);
+		 bean.setId(15);
 		 
 		 model.delete(bean);
 		 
@@ -110,5 +112,30 @@ public class TestMarksheetModel {
 		          
 		        }
 		    }
+	 public static void TestGetMeritList( ) throws Exception {
+		 
+		 MarksheetBean bean = new MarksheetBean();
+		 MarksheetModel model = new MarksheetModel();
+		 
+		 List<MarksheetBean> list = model.getMeritList();
+		 
+		 Iterator<MarksheetBean> it =list.iterator();
+		 
+		 while (it.hasNext()) {
+				bean = it.next();
+				System.out.println(bean.getId());
+				System.out.println(bean.getRollNo());
+				System.out.println(bean.getName());
+				System.out.println(bean.getPhy());
+				System.out.println(bean.getHindi());
+				System.out.println(bean.getMaths());
+				System.out.println(bean.getDept_id());
+				int total = bean.getPhy() + bean.getHindi() + bean.getMaths();
+				double percentage = ((total) / 3);
+				System.out.println(total);
+				System.out.println(percentage);
+			}
+		 
+	 }
 		}
 

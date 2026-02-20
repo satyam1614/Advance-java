@@ -179,4 +179,31 @@ public class MarksheetModel {
 		return list;
 
 	}
+	public List<MarksheetBean> getMeritList() throws Exception {
+
+		Class.forName("com.mysql.cj.jdbc.Driver");
+
+		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rays", "root", "root");
+
+		PreparedStatement pstmt = conn.prepareStatement(
+				"select *, (phy+hindi+maths) as total from marksheet order by total desc limit 0, 5");
+
+		ResultSet rs = pstmt.executeQuery();
+
+		List<MarksheetBean> list = new ArrayList<MarksheetBean>();
+		MarksheetBean bean = null;
+
+		while (rs.next()) {
+			bean = new MarksheetBean();
+			bean.setId(rs.getInt(1));
+			bean.setRollNo(rs.getInt(2));
+			bean.setName(rs.getString(3));
+			bean.setPhy(rs.getInt(4));
+			bean.setHindi(rs.getInt(5));
+			bean.setMaths(rs.getInt(6));
+			bean.setDept_id(rs.getInt(7));
+			list.add(bean);
+		}
+		return list;
+}
 }
