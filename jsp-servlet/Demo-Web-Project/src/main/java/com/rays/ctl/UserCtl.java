@@ -1,5 +1,6 @@
 package com.rays.ctl;
 
+
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 
@@ -13,12 +14,15 @@ import javax.servlet.http.HttpServletResponse;
 import com.rays.bean.UserBean;
 import com.rays.model.UserModel;
 
-@WebServlet("/UserRegistrationCtl")
-public class UserRegistrationCtl extends HttpServlet {
 
+@WebServlet("/UserCtl")
+public class UserCtl extends HttpServlet {
+	
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("UserRegistrationView.jsp");
+
+		RequestDispatcher rd = request.getRequestDispatcher("UserView.jsp");
 		rd.forward(request, response);
 	}
 
@@ -42,15 +46,16 @@ public class UserRegistrationCtl extends HttpServlet {
 			bean.setPassword(password);
 			bean.setDob(sdf.parse(dob));
 			model.add(bean);
-			request.setAttribute("succesMsg", "user Register Successfully");
+			request.setAttribute("successMsg", "user saved successfully");
 		} catch (Exception e) {
-			request.setAttribute("errorMsg", e.getMessage());
+			request.setAttribute("erorrMsg", e.getMessage());
 			e.printStackTrace();
 		}
 
-		RequestDispatcher rd = request.getRequestDispatcher("UserRegistrationView.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("UserView.jsp");
 		rd.forward(request, response);
 
 	}
+
 
 }

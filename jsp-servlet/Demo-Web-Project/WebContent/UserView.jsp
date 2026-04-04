@@ -1,25 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
-
-	<%
-	String succesMsg = (String) request.getAttribute("succesMsg");
-	String errorMsg = (String) request.getAttribute("errorMsg");
+<body> 
+      <%
+	String succesMsg = (String) request.getAttribute("successMsg");
+	String errorMsg = (String) request.getAttribute("erorrMsg");
 	%>
 
 	<%@ include file="Header.jsp"%>
-
 	<div align="center">
-		<h1>User Registration</h1>
+		<h1>Add User</h1>
 		<h3 style="color: green"><%=succesMsg != null ? succesMsg : ""%></h3>
 		<h3 style="color: red"><%=errorMsg != null ? errorMsg : ""%></h3>
-		<form action="UserRegistrationCtl" method="post">
+		<form action="UserCtl" method="post">
 
 			<table>
 
@@ -44,7 +42,7 @@
 				<tr>
 					<th>Password :</th>
 					<td><input type="password" name="password" value=""
-						placeholder="enter your Password"></td>
+						placeholder="enter your login"></td>
 				</tr>
 
 				<tr>
@@ -54,7 +52,7 @@
 
 				<tr>
 					<th></th>
-					<td><input type="submit" name="operation" value="signUp"></td>
+					<td><input type="submit" name="operation" value="save"></td>
 				</tr>
 
 			</table>
@@ -63,5 +61,6 @@
 
 	</div>
 	<%@ include file="Footer.jsp"%>
+      
 </body>
 </html>
