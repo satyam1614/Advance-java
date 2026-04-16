@@ -1,4 +1,4 @@
-package com.rays.model;
+ package com.rays.model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -35,9 +35,9 @@ public class UserModel {
 
 		UserBean existsBean = findByLogin(bean.getLogin());
 
-		if (existsBean != null) {
-			throw new DuplicateRecordException("email id already exists");
-		}
+		//if (existsBean != null) {
+		//	throw new DuplicaterecordException("email id already exists");
+		//}
 
 		Connection conn = JDBCDataSource.getConnection();
 
@@ -185,6 +185,9 @@ public class UserModel {
 			}
 			if (bean.getLastName() != null && bean.getLastName().length() > 0) {
 				sql.append(" and lastName like '" + bean.getLastName() + "%'");
+			}
+			if (bean.getLogin() != null && bean.getLogin().length() > 0) {
+				sql.append(" and login = '" + bean.getLastName() + "'");
 			}
 		}
 

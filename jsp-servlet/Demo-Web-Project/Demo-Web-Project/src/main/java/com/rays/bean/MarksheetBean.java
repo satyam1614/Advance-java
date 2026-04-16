@@ -1,7 +1,5 @@
 package com.rays.bean;
 
-import java.util.Date;
-
 public class MarksheetBean {
 	
 	private int id;
@@ -19,8 +17,8 @@ public class MarksheetBean {
 	public int getRollNo() {
 		return rollNo;
 	}
-	public void setRollNo(int rollNo) {
-		this.rollNo = rollNo;
+	public void setRollNo(int rollNO) {
+		this.rollNo = rollNO;
 	}
 	public String getName() {
 		return name;

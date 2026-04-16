@@ -15,12 +15,25 @@ import com.rays.bean.UserBean;
 import com.rays.model.UserModel;
 
 
-@WebServlet("/UserCtl")
+@WebServlet("/UserCtl.do")
 public class UserCtl extends HttpServlet {
 	
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
+		UserModel model = new UserModel();
+		UserBean bean = new UserBean();
+		String id = request.getParameter("id");
+
+		if (id != null) {
+			try {
+				bean = model.findByPk(Integer.parseInt(id));
+				request.setAttribute("bean", bean);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 
 		RequestDispatcher rd = request.getRequestDispatcher("UserView.jsp");
 		rd.forward(request, response);
@@ -29,6 +42,7 @@ public class UserCtl extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		String op = request.getParameter("operation");
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		UserBean bean = new UserBean();
 		UserModel model = new UserModel();
@@ -45,8 +59,15 @@ public class UserCtl extends HttpServlet {
 			bean.setLogin(login);
 			bean.setPassword(password);
 			bean.setDob(sdf.parse(dob));
-			model.add(bean);
-			request.setAttribute("successMsg", "user saved successfully");
+
+			if (op.equals("update")) {
+				bean.setId(Integer.parseInt(request.getParameter("id")));
+				model.update(bean);
+				request.setAttribute("successMsg", "user updated successfully");
+			} else {
+				model.add(bean);
+				request.setAttribute("successMsg", "user saved successfully");
+			}
 		} catch (Exception e) {
 			request.setAttribute("erorrMsg", e.getMessage());
 			e.printStackTrace();
@@ -56,6 +77,5 @@ public class UserCtl extends HttpServlet {
 		rd.forward(request, response);
 
 	}
-
 
 }

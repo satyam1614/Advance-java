@@ -8,13 +8,12 @@
 </head>
 <body>
 
-	<%
-	String succesMsg = (String) request.getAttribute("succesMsg");
-	String errorMsg = (String) request.getAttribute("errorMsg");
+		<%
+	String succesMsg = (String) request.getAttribute("successMsg");
+	String errorMsg = (String) request.getAttribute("erorrMsg");
 	%>
 
 	<%@ include file="Header.jsp"%>
-
 	<div align="center">
 		<h1>User Registration</h1>
 		<h3 style="color: green"><%=succesMsg != null ? succesMsg : ""%></h3>
@@ -44,7 +43,7 @@
 				<tr>
 					<th>Password :</th>
 					<td><input type="password" name="password" value=""
-						placeholder="enter your Password"></td>
+						placeholder="enter your login"></td>
 				</tr>
 
 				<tr>

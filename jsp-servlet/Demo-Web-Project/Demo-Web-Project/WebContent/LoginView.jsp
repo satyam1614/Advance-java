@@ -8,43 +8,41 @@
 </head>
 <body>
 
-     <%
-     String successMsg =(String) request.getAttribute("successMsg");
-     String errorMsg =(String) request.getAttribute("errorMsg");
-     %>
-     
-     
-     <%@ include file = "Header.jsp"%>
-     <div align="center">
-        <h1>Login</h1>
-        <h3 style="colour: green"><%=successMsg != null ? successMsg :"" %></h3>
-        <h3 style="colour: red"><%=errorMsg != null ? errorMsg :"" %></h3>
-        <form action="LoginCtl" method="post">
-        
-        <table>
-        
-           <tr>
-              <th>Login :</th>
-              <td><input type=" email" name="login" value=""
-                   placeholder="enter your login"></td>  
-           </tr>
-        
-            <tr>
-              <th>Password :</th>
-              <td><input type=" password" name="password" value=""
-                   placeholder="enter your login"></td>  
-           </tr>
-           
-            <tr>
-              <th></th>
-              <td><input type="submit" name="opertion" value="signIn"></td>  
-           </tr>
-        
-        </table>
-        
-        </form>
-     
-     </div>
-     <%@ include file="Footer.jsp"%>
+    <%
+	String succesMsg = (String) request.getAttribute("successMsg");
+	String erorrMsg = (String) request.getAttribute("erorrMsg");
+	%>
+
+	<%@ include file="Header.jsp"%>
+	<div align="center">
+		<h1>Login</h1>
+		<h3 style="color: green"><%=succesMsg != null ? succesMsg : ""%></h3>
+		<h3 style="color: red"><%=erorrMsg != null ? erorrMsg : ""%></h3>
+		<form action="LoginCtl" method="post">
+
+			<table>
+				<tr>
+					<th>Login :</th>
+					<td><input type="email" name="login" value=""
+						placeholder="enter your login"></td>
+				</tr>
+
+				<tr>
+					<th>Password :</th>
+					<td><input type="password" name="password" value=""
+						placeholder="enter your login"></td>
+				</tr>
+				<tr>
+					<th></th>
+					<td><input type="submit" name="operation" value="signIn"></td>
+				</tr>
+
+			</table>
+
+		</form>
+
+	</div>
+	<%@ include file="Footer.jsp"%>
+    
 </body>
 </html>
