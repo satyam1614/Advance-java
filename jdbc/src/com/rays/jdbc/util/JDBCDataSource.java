@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
+
 //1. create class final so child can not be created
 public final class JDBCDataSource {
 	
