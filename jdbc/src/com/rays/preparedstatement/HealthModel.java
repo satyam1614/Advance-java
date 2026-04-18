@@ -64,7 +64,7 @@ public class HealthModel {
 
 		int i = pstmt.executeUpdate();
 
-		System.out.println(i + "row affected (records delete...");
+		System.out.println(i + "row affected records delete...");
 
 	}
 
