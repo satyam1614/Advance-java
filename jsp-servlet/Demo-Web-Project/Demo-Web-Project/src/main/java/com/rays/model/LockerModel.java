@@ -30,7 +30,7 @@ public class LockerModel {
 		rs.close();
 		return pk + 1;
 	}
-	 public long add(LockerBean bean) throws Exception{
+	 public long add(LockerBean bean) throws SQLException{
 		 
 		 Connection conn = JDBCDataSource.getConnection();
 		 
@@ -109,7 +109,7 @@ public class LockerModel {
 
 	 }
 	 
-	 public List<LockerBean> search(LockerBean bean, int pageNo, int pageSize) throws Exception {
+	 public List<LockerBean> search(LockerBean bean, int pageNo, int pageSize) throws SQLException{
 		 
 		 Connection conn = JDBCDataSource.getConnection();
 		 

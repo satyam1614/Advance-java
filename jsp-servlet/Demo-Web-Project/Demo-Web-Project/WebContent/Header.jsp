@@ -1,6 +1,6 @@
 <%@page import="com.rays.bean.UserBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <%
+	<%
 	UserBean userBean = (UserBean) session.getAttribute("user");
 	%>
 
@@ -20,6 +20,8 @@
 	<a href="UserListCtl.do">User List</a> |
 	<a href="MarksheetCtl.do">Marksheet</a> |
 	<a href="MarksheetListCtl.do">Marksheet List</a> |
+	<a href="AccessLogCtl.do">AccessLog</a>|
+	<a href="AllowCtl.do">Allow</a>|
 	<a href="LoginCtl?operation=logout">Logout</a> |
 	<%
 	} else {
